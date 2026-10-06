@@ -1,0 +1,12 @@
+{
+  "name": "deacon-procore-mcp",
+  "displayName": "Deacon Procore MCP",
+  "description": "Deacon Procore MCP tools for Deacon Construction.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Deacon Construction"
+  },
+  "logo": "assets/deacon-mark-navy.svg",
+  "mcpServers": "mcp.json",
+  "repository": "https://github.com/curmorpheus/deacon-cursor-plugins"
+}

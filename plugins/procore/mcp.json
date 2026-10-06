@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "Deacon Procore MCP": {
+      "url": "https://procore-mcp.deacon.build/mcp"
+    }
+  }
+}

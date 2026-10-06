@@ -1,0 +1,16 @@
+{
+  "name": "deacon-cursor-plugins",
+  "owner": {
+    "name": "Deacon Construction"
+  },
+  "plugins": [
+    {
+      "name": "deacon-procore-mcp",
+      "source": "plugins/procore"
+    },
+    {
+      "name": "deacon-buildingconnected-mcp",
+      "source": "plugins/buildingconnected"
+    }
+  ]
+}
