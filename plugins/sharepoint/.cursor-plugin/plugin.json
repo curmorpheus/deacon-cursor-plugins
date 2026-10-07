@@ -8,5 +8,6 @@
   },
   "logo": "assets/deacon-mark-navy.svg",
   "mcpServers": "mcp.json",
-  "repository": "https://github.com/curmorpheus/deacon-cursor-plugins"
+  "repository": "https://github.com/curmorpheus/deacon-cursor-plugins",
+  "skills": "skills/"
 }
