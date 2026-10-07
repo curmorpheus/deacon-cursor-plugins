@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Deacon mark">
+  <rect width="64" height="64" rx="12" fill="#ffffff"/>
+  <rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="#003057" stroke-width="2"/>
+  <g transform="translate(-3.272,1.703) scale(0.9568)"><path fill="#003057" d="M34.26,41.53h-4.94V21.75h4.94c5.63,0,9.74,4.24,9.74,9.87 C44.01,37.29,39.89,41.53,34.26,41.53z M34.79,16.51H24.53c-0.44,0-0.78,0.39-0.78,0.83v28.66c0,0.43,0.34,0.82,0.78,0.82h10.26 c8.35,0,15.19-6.79,15.19-15.19C49.98,23.31,43.14,16.51,34.79,16.51z"></path></g>
+</svg>

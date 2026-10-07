@@ -6,8 +6,9 @@ Cursor marketplace for Deacon Construction's hosted MCP servers, each packaged w
 | --- | --- |
 | `deacon-procore-mcp` | `https://procore-mcp.deacon.build/mcp` |
 | `deacon-buildingconnected-mcp` | `https://bc-mcp.deacon.build/mcp` |
+| `deacon-sharepoint-mcp` | `https://sharepoint-mcp.deacon.build/mcp` |
 
-This repo is public so Cursor, including cloud agents, can fetch it without GitHub credentials. It holds only plugin names, server URLs and the logo: no credentials, no server code. Each user signs in to the servers with their own Deacon account.
+This repo is public so Cursor, including cloud agents, can fetch it without GitHub credentials. It holds only plugin names, server URLs, the logo and usage skills: no credentials, no server code. Each user signs in to the servers with their own Deacon account.
 
 ## Install
 
@@ -15,4 +16,4 @@ Import `https://github.com/curmorpheus/deacon-cursor-plugins` into the Cursor te
 
 ## Add a plugin
 
-Add `plugins/<name>/` with `.cursor-plugin/plugin.json`, `mcp.json` and `assets/deacon-mark-navy.svg`, then list it in `.cursor-plugin/marketplace.json`.
+Add `plugins/<name>/` with `.cursor-plugin/plugin.json`, `mcp.json` and `assets/deacon-mark-navy.svg` (plus optional `skills/<skill>/SKILL.md`), then list it in `.cursor-plugin/marketplace.json`.

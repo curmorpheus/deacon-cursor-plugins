@@ -11,6 +11,10 @@
     {
       "name": "deacon-buildingconnected-mcp",
       "source": "plugins/buildingconnected"
+    },
+    {
+      "name": "deacon-sharepoint-mcp",
+      "source": "plugins/sharepoint"
     }
   ]
 }
