@@ -1,0 +1,13 @@
+{
+  "name": "deacon-sharepoint-mcp",
+  "displayName": "Deacon SharePoint MCP",
+  "description": "File email and BuildingConnected bid attachments into Estimating SharePoint (create-only).",
+  "version": "1.0.0",
+  "author": {
+    "name": "Deacon Construction"
+  },
+  "logo": "assets/deacon-mark-navy.svg",
+  "mcpServers": "mcp.json",
+  "repository": "https://github.com/curmorpheus/deacon-cursor-plugins",
+  "skills": "skills/"
+}
