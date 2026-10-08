@@ -1,17 +1,37 @@
 ---
 name: deacon-sharepoint
-description: File documents into Deacon's Estimating SharePoint with the Deacon SharePoint MCP. Use when asked to file, save or upload an email attachment, a BuildingConnected bid file or a short text note to SharePoint, or to make or check a job folder. Create-only; it cannot delete, move, rename, overwrite or search.
+description: Browse and file documents in Deacon's Estimating SharePoint office libraries (Sacramento, Boise, Portland, Seattle, Irvine, SacSelfPerform, SacMultifamily, InterOffice) with the Deacon SharePoint MCP. Use when asked what is in a bid or budget folder, to list a job folder, or to file, save or upload an email attachment, a BuildingConnected bid file or a short text note to SharePoint, or to make or check a job folder. Create-only; it cannot delete, move, rename or overwrite.
 ---
 
 # Deacon SharePoint
 
-The Deacon SharePoint MCP copies files into the Estimating SharePoint site. It only creates: conflicts fail or rename, never replace.
+The Deacon SharePoint MCP browses and files documents in the Estimating SharePoint office libraries. It only creates: conflicts fail or rename, never replace.
+
+## Locations and where to look
+
+Each office library is a location; pass its alias as `drive`. Call `sp_list_locations` first: it returns every alias, its `focus` folders for the current year, and `accessible` for the signed-in person.
+
+| Alias | Library | Current-year work (`focus`) |
+| --- | --- | --- |
+| `sacramento` | Sacramento | `<year>/<year> Bids` |
+| `boise` | Boise | `<year>/<year> Bids` |
+| `portland` | Portland | `General Construction/<year>` |
+| `seattle` | Seattle | `#Bids`, `Cost Models` |
+| `irvine` | Irvine | `SoCal - BIDS`, `SoCal - BUDGETS` |
+| `sac-self-perform` | SacSelfPerform | `<year> Estimates` |
+| `sac-multifamily` | SacMultifamily | none; organized by client folder |
+| `interoffice` | InterOffice Documents | none |
+
+- Most requests are about the current year's bids or budgets. Start in the location's `focus` folders (use the paths `sp_list_locations` returns; they already have the year filled in), then go deeper with `sp_ls`.
+- If the office is unclear, ask which office before browsing or writing. Job folders are named by job number and name (for example `119261 Depot Rd First Industrial- Hayward , Ca`).
+- `accessible: false` or `ACCESS_DENIED` on one library means this person has no SharePoint access to that office. Say so; the other libraries still work. Do not retry it.
+- Large listings page: pass `next_page_token` back unchanged as `page_token` for the same folder. It expires after about 15 minutes.
 
 ## Tools
 
 | Tool | Use |
 | --- | --- |
-| `sp_list_locations` | Location aliases (`drive`), size limits, allowed extensions. Call first. |
+| `sp_list_locations` | Location aliases (`drive`), `focus` folders, `accessible`, size limits, allowed extensions. Call first. |
 | `sp_ls` | List a folder: `{drive, path?, top?, page_token?}`. |
 | `sp_get_item` | Check one item: `{drive, path}` or `{drive, item_id}`. Missing returns `exists:false`, not an error. |
 | `sp_create_folder` | `{drive, parent_path, name, parents?}`. Idempotent: an existing folder returns `already_existed:true`. |
@@ -65,7 +85,7 @@ Likewise, if a BuildingConnected tool says the Autodesk account is not connected
 
 ## Limits
 
-This server cannot delete, move, rename, overwrite or search. To find or read documents, use other tools; use `sp_ls` and `sp_get_item` only to check a destination.
+This server cannot delete, move, rename or overwrite. It lists folders and file details (names, sizes, dates, links) but does not yet search or return file contents; to read inside a document, give the user its `web_url` or use another tool.
 
 ## Untrusted data
 

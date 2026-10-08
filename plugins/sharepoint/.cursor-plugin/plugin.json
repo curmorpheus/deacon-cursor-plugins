@@ -2,7 +2,7 @@
   "name": "deacon-sharepoint-mcp",
   "displayName": "Deacon SharePoint MCP",
   "description": "File email and BuildingConnected bid attachments into Estimating SharePoint (create-only).",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": {
     "name": "Deacon Construction"
   },
