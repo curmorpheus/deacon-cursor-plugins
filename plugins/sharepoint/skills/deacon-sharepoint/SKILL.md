@@ -54,7 +54,7 @@ Paths are relative to the location root, `/`-separated; `""` is the root.
 ## Email attachments
 
 1. Find the message with email-mcp `mail_search_messages` (or `mail_list_messages`), then `mail_read_message`.
-2. Use only attachments with `kind: "file"`. Inline items, item attachments and reference (cloud link) attachments cannot be imported.
+2. Pick file attachments only. If email-mcp shows `kind`, use only `kind: "file"`. If `kind` is absent, try the import; the server rejects non-file attachments (`UNSUPPORTED_ATTACHMENT`). Item attachments (embedded emails) and reference attachments (cloud links) cannot be imported.
 3. Confirm, ensure the folder, then `sp_import_email_attachment` with the `message_id` and `attachment_id` from email-mcp. It reads the signed-in user's own mailbox only.
 
 ## Finding and reading
