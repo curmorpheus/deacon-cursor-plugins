@@ -1,15 +1,23 @@
 ---
 name: deacon-sharepoint
-description: Find, read, browse and file documents in Deacon's Estimating SharePoint office libraries (Sacramento, Boise, Portland, Seattle, Irvine, SacSelfPerform, SacMultifamily, InterOffice) with the Deacon SharePoint MCP. Use when asked to find a bid or budget document, what is in a bid or budget folder, what changed recently, to read a Word, Excel or CSV file, to copy a bid folder template, to save a bid summary as a PDF, or to file an email attachment or BuildingConnected bid file. Create-only; it cannot delete, move, rename or overwrite.
+description: Find, read and browse documents across Deacon's SharePoint sites the person can open, and file documents into the Estimating office libraries (Sacramento, Boise, Portland, Seattle, Irvine, SacSelfPerform, SacMultifamily, InterOffice), with the Deacon SharePoint MCP. Use when asked to find a bid or budget document, what is in a bid or budget folder, what changed recently, to read a Word, Excel or CSV file, to copy a bid folder template, to save a bid summary as a PDF, or to file an email attachment or BuildingConnected bid file. Create-only; it cannot delete, move, rename or overwrite.
 ---
 
 # Deacon SharePoint
 
 The Deacon SharePoint MCP finds, reads, browses and files documents in the Estimating SharePoint office libraries. It only creates: conflicts fail or rename, never replace.
 
-## Locations and where to look
+## Reading across Deacon SharePoint
 
-Each office library is a location; pass its alias as `drive`. Call `sp_list_locations` first: it returns every alias, its `focus` folders for the current year, and `accessible` for the signed-in person.
+- Reads use the person's own SharePoint permissions on any Deacon site they can open. Some sites are never available through this connector (blocked); say so if asked, and don't try to work around it.
+- `sp_list_sites {query}` finds sites; `sp_list_libraries {site}` lists a site's document libraries and their `drive_id`.
+- Read tools (`sp_ls`, `sp_get_item`, `sp_read_file`, `sp_recent`, `sp_search`) take either `drive` (an Estimating alias below) or `drive_id` (from `sp_list_libraries`).
+- `sp_search` with no `drive`/`drive_id` searches everything the person can see (organization-wide).
+- Writing is only possible into the Estimating aliases below, and only for approved writers. If the write tools are not in your tool list, this person or client is read-only: say so; do not look for another way to write.
+
+## Estimating locations and where to look
+
+Each Estimating office library is a location; pass its alias as `drive`. These are the only places writes can go. Call `sp_list_locations` first: it returns every alias, its `focus` folders for the current year, and `accessible` for the signed-in person.
 
 | Alias | Library | Current-year work (`focus`) |
 | --- | --- | --- |
